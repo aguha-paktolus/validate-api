@@ -1,7 +1,7 @@
 const { Sequelize } = require("sequelize");
 const dbConfig = require("./db.config");
 
-//initializing sequelize object
+//initializing sequelize object, giving postgres configuration values from db.config file
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
   dialect: dbConfig.dialect,
@@ -15,6 +15,7 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   },
 });
 
+//checking database connection using sequelize.authenticate()
 try {
    sequelize.authenticate();
   console.log("Connection has been established successfully.");
@@ -22,7 +23,7 @@ try {
   console.error("Unable to connect to the database:", error);
 }
 
-//defining table structure
+//defining model/table structure using sequelize.define
 const User = sequelize.define("user", {
   firstName: {
     type: Sequelize.STRING,
@@ -107,6 +108,7 @@ const User = sequelize.define("user", {
   //   },
 });
 
+//Model synchronization using sequelize.sync. retue
 sequelize
   .sync()
   .then(() => console.log("users table has been successfully created"))

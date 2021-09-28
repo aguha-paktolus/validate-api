@@ -1,3 +1,4 @@
+//postgres configuration parameters defined
 module.exports = {
   HOST: "localhost",
   USER: "postgres",
