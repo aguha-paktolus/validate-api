@@ -1,8 +1,7 @@
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
-const mainroutes = require("./routes");
-
+const mainroutes = require("./route/routes");
 
 // parse requests of content-type - application/json
 app.use(express.json());

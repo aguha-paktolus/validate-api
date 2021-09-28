@@ -17,7 +17,7 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
 
 //checking database connection using sequelize.authenticate()
 try {
-   sequelize.authenticate();
+  sequelize.authenticate();
   console.log("Connection has been established successfully.");
 } catch (error) {
   console.error("Unable to connect to the database:", error);
@@ -60,7 +60,7 @@ const User = sequelize.define("user", {
   //     allowNull: false,
   //   },
 
-  zipcode: {
+  zipCode: {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
