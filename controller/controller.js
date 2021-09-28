@@ -1,6 +1,8 @@
-const Joi = require("joi");
-const dbConn = require("../model/pgdb");
-const User = dbConn.User;
+const Joi = require("joi");    
+
+//importing sequelize model/table User from pgdb in model folder
+const {User} = require("../model/pgdb");
+
 
 const validCheck = function (req, res, next) {
   //defining an object from request body parameters for joi validation
