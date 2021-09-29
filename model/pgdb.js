@@ -65,42 +65,73 @@ const User = sequelize.define("user", {
     allowNull: false,
   },
 
-  //   phoneNumber: {
-  //     type: Sequelize.INTEGER,
-  //     allowNull: false,
-  //   },
+  phoneNumber: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+  },
 
-  //   emailAddress: {
-  //     type: Sequelize.STRING,
-  //     allowNull: false,
-  //   },
+  emailAddress: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
 
-  //   preferredDeductible: {
-  //     type: Sequelize.ENUM(""),
-  //     allowNull: false,
-  //   },
+  preferredDeductible: {
+    type: Sequelize.ENUM('1000', '1500', '2000', '2500', '3000'),
+    allowNull: false,
+  },
 
-  //   dateOfBirth: {},
+  dateOfBirth: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
 
-  //   residencyStatus: {
-  //     type: Sequelize.ENUM(""),
-  //     //allowNull: false,
-  //   },
+  residencyStatus: {
+    type: Sequelize.ENUM("Primary", "Secondary"),
+    //allowNull: false,
+  },
 
-  //   industry: {
-  //     type: Sequelize.ENUM(""),
-  //     allowNull: false,
-  //   },
+  industry: {
+    type: Sequelize.ENUM(
+      "Accounting",
+      "Administration & Office Support",
+      "Construction",
+      "Consulting & Strategy",
+      "Design & Architechture",
+      "Engineering",
+      "Government & Defence",
+      "Healthcare & Medical",
+      "Information & Communication Technology",
+      "Mining, Resources & Energy",
+      "Real Estate & Property",
+      "Science & Technology",
+      "Trades & Services"
+    ),
+    allowNull: false,
+  },
 
-  //   occupation: {
-  //     type: Sequelize.ENUM(""),
-  //     allowNull: false,
-  //   },
+  occupation: {
+    type: Sequelize.ENUM(
+      "Government Service",
+      "Private Service",
+      "Artist",
+      "Entrepreneur",
+      "Agriculture",
+      "Business",
+      "Social Worker"
+    ),
+    allowNull: false,
+  },
 
-  //   education: {
-  //     type: Sequelize.ENUM(""),
-  //     allowNull: false,
-  //   },
+  education: {
+    type: Sequelize.ENUM(
+      "matriculate",
+      "Intermediate",
+      "Graduation",
+      "Post Graduation",
+      "PhD"
+    ),
+    //allowNull: false,
+  },
 
   //   houseType: {
   //     type: Sequelize.ENUM("House", "Condo", "HO5"),
@@ -115,5 +146,5 @@ sequelize
   .catch((error) => console.log(error));
 
 module.exports = {
-  User
+  User,
 };
