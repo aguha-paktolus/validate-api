@@ -25,40 +25,78 @@ try {
 
 //defining model/table structure using sequelize.define
 const User = sequelize.define("user", {
+
   firstName: {
     type: Sequelize.STRING,
     allowNull: false,
   },
 
-  //   middleName: {
-  //     type: Sequelize.STRING,
-  //     //allowNull: false,
-  //   },
+  middleName: {
+    type: Sequelize.STRING,
+    //allowNull: false,
+  },
 
   lastName: {
     type: Sequelize.STRING,
     allowNull: false,
   },
 
-  //   streetAddress: {
-  //     type: Sequelize.STRING,
-  //     allowNull: false,
-  //   },
+    streetAddress: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
 
-  //   unit: {
-  //     type: Sequelize.INTEGER,
-  //     //allowNull: false,
-  //   },
+    unit: {
+      type: Sequelize.INTEGER,
+      //allowNull: false,
+    },
 
-  //   city: {
-  //     type: Sequelize.STRING,
-  //     allowNull: false,
-  //   },
+  city: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
 
-  //   state: {
-  //     type: Sequelize.ENUM(""),
-  //     allowNull: false,
-  //   },
+  state: {
+    type: Sequelize.ENUM(
+      "Andaman and Nicobar Islands",
+      "Andhra Pradesh",
+      "Arunachal Pradesh",
+      "Assam",
+      "Bihar",
+      "Chandigarh",
+      "Chhattisgarh",
+      "Dadra and Nagar Haveli",
+      "Daman and Diu",
+      "Delhi",
+      "Goa",
+      "Gujarat",
+      "Haryana",
+      "Himachal Pradesh",
+      "Jammu and Kashmir",
+      "Jharkhand",
+      "Karnataka",
+      "Kerala",
+      "Lakshadweep",
+      "Madhya Pradesh",
+      "Maharashtra",
+      "Manipur",
+      "Meghalaya",
+      "Mizoram",
+      "Nagaland",
+      "Odisha",
+      "Puducherry",
+      "Punjab",
+      "Rajasthan",
+      "Sikkim",
+      "Tamil Nadu",
+      "Telangana",
+      "Tripura",
+      "Uttar Pradesh",
+      "Uttarakhand",
+      "West Bengal"
+    ),
+    allowNull: false,
+  },
 
   zipCode: {
     type: Sequelize.INTEGER,
@@ -76,7 +114,7 @@ const User = sequelize.define("user", {
   },
 
   preferredDeductible: {
-    type: Sequelize.ENUM('1000', '1500', '2000', '2500', '3000'),
+    type: Sequelize.ENUM("1000", "1500", "2000", "2500", "3000"),
     allowNull: false,
   },
 
@@ -133,10 +171,10 @@ const User = sequelize.define("user", {
     //allowNull: false,
   },
 
-  //   houseType: {
-  //     type: Sequelize.ENUM("House", "Condo", "HO5"),
-  //     allowNull: false,
-  //   },
+    houseType: {
+      type: Sequelize.ENUM("House", "Condo", "HO5"),
+      allowNull: false,
+    },
 });
 
 //Model synchronization using sequelize.sync. retue

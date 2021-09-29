@@ -13,7 +13,56 @@ const validCheck = function (req, res, next) {
     .keys({
       firstName: Joi.string().min(4).max(20).required(),
 
+      middleName: Joi.string().min(4).max(20),
+
       lastName: Joi.string().min(4).max(20).required(),
+
+      streetAddress: Joi.string().required(),
+
+      unit: Joi.number().integer(),
+
+      city: Joi.string().required(),
+
+      state: Joi.string()
+        .valid(
+          "Andaman and Nicobar Islands",
+          "Andhra Pradesh",
+          "Arunachal Pradesh",
+          "Assam",
+          "Bihar",
+          "Chandigarh",
+          "Chhattisgarh",
+          "Dadra and Nagar Haveli",
+          "Daman and Diu",
+          "Delhi",
+          "Goa",
+          "Gujarat",
+          "Haryana",
+          "Himachal Pradesh",
+          "Jammu and Kashmir",
+          "Jharkhand",
+          "Karnataka",
+          "Kerala",
+          "Lakshadweep",
+          "Madhya Pradesh",
+          "Maharashtra",
+          "Manipur",
+          "Meghalaya",
+          "Mizoram",
+          "Nagaland",
+          "Odisha",
+          "Puducherry",
+          "Punjab",
+          "Rajasthan",
+          "Sikkim",
+          "Tamil Nadu",
+          "Telangana",
+          "Tripura",
+          "Uttar Pradesh",
+          "Uttarakhand",
+          "West Bengal"
+        )
+        .required(),
 
       zipCode: Joi.number().integer().min(000000).max(999999).required(),
 
@@ -25,7 +74,7 @@ const validCheck = function (req, res, next) {
         .valid("1000", "1500", "2000", "2500", "3000")
         .required(),
 
-      dateOfBirth : Joi.string().min(10).max(100).required(),
+      dateOfBirth: Joi.string().min(10).max(100).required(),
 
       residencyStatus: Joi.string().valid("Primary", "Secondary"),
 
@@ -68,6 +117,8 @@ const validCheck = function (req, res, next) {
           "PhD"
         )
         .required(),
+
+      houseType: Joi.string().valid("House", "Condo", "HO5"),
     })
     .options({ abortEarly: false });
 
@@ -97,15 +148,22 @@ function dbData(req, res) {
   //create model instance or table row using validated req.body data
   User.create({
     firstName: req.body.firstName,
+    middleName: req.body.middleName,
     lastName: req.body.lastName,
+    streetAddress: req.body.streetAddress,
+    unit: req.body.unit,
+    city: req.body.city,
+    state: req.body.state,
     zipCode: req.body.zipCode,
     phoneNumber: req.body.phoneNumber,
     emailAddress: req.body.emailAddress,
     preferredDeductible: req.body.preferredDeductible,
     dateOfBirth: req.body.dateOfBirth,
+    residencyStatus: req.body.residencyStatus,
     industry: req.body.industry,
     occupation: req.body.occupation,
     education: req.body.education,
+    houseType: req.body.houseType,
   })
     .then((user) => {
       //console.log(user);
